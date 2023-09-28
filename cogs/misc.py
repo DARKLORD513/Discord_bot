@@ -29,7 +29,7 @@ class Misc(commands.Cog):
   @commands.command(help="Search the weather of a place", brief="Sends the weather description of a place")
   async def weather(self,ctx, *, city: str):
    base_url = "http://api.openweathermap.org/data/2.5/weather?"
-   api_key = "563edfafe056557a77ede010adfe982a"
+   api_key = "Your api key here"
    city_name=city
    complete_url=base_url+"appid="+api_key+"&q="+city_name
    response=requests.get(complete_url)
@@ -46,7 +46,7 @@ class Misc(commands.Cog):
        desc=z[0]["description"]
        emb=discord.Embed(title=(f"Weather in {city_name}"), color=discord.Color.gold(), timestamp=ctx.message.created_at, )
     
-       emb.add_field(name="Description", value=f"**{desc}**", inline=False)
+     emb.add_field(name="Description", value=f"**{desc}**", inline=False)
      emb.add_field(name="Temperature", value=f"**{temp_c} °C**", inline=False)
      emb.add_field(name="Humidity", value=f"**{current_humidity}%**", inline=False)
      emb.add_field(name="Atmospheric Pressure", value=f"**{current_press} hPa**", inline=False)
